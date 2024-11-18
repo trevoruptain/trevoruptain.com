@@ -1,0 +1,69 @@
+:root {
+    --sizeVar: 2vw;
+    --animVar: 200ms;
+  }
+  
+  body {
+    background-color: #666666;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .flex {
+    position: absolute;
+    display: flex;
+    background-color: #141615;
+    padding: calc(var(--sizeVar) * 2.5);
+    border-radius: calc(var(--sizeVar) * 1.5);
+    box-shadow: 0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 0.5)
+        calc(var(--sizeVar) * -1) #ffffff99 inset,
+      0 calc(var(--sizeVar) * 0.25) calc(var(--sizeVar) * 0.5)
+        calc(var(--sizeVar) * 0.2) #00000055,
+      0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 2.5)
+        calc(var(--sizeVar) * 0.2) #00000055;
+    justify-content: center;
+    align-items: center;
+    gap: var(--sizeVar);
+  }
+  .key {
+    width: calc(var(--sizeVar) * 5.6);
+    aspect-ratio: 1 / 1;
+    background: rgb(33, 33, 35);
+    background: linear-gradient(
+      0deg,
+      rgba(33, 33, 35, 1) 0%,
+      rgba(53, 53, 53, 1) 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: calc(var(--sizeVar) * 0.7);
+    font-size: calc(var(--sizeVar) * 2);
+    font-family: sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1)
+        calc(var(--sizeVar) * -1) #ffffff55 inset,
+      0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5)
+        calc(var(--sizeVar) * -1) #ffffff33 inset,
+      0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
+    transition: filter var(--animVar) ease-in-out 0s,
+      box-shadow var(--animVar) ease-in-out 0s,
+      color var(--animVar) ease-in-out 0s;
+  }
+  
+  .key:hover {
+    filter: brightness(90%);
+    color: #666666;
+    box-shadow: 0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1)
+        calc(var(--sizeVar) * -1) #ffffff00 inset,
+      0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5)
+        calc(var(--sizeVar) * -1) #ffffff00 inset,
+      0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
+  }
+  
