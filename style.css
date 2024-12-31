@@ -1,6 +1,5 @@
 :root {
   --sizeVar: 2vw;
-  --animVar: 200ms;
 }
 
 body {
@@ -14,31 +13,23 @@ body {
 }
 
 .flex {
-  position: absolute;
   display: flex;
-  background-color: #141615;
-  padding: calc(var(--sizeVar) * 2.5);
-  border-radius: calc(var(--sizeVar) * 1);
-  box-shadow: 0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 0.5)
-      calc(var(--sizeVar) * -1) #ffffff99 inset,
-    0 calc(var(--sizeVar) * 0.25) calc(var(--sizeVar) * 0.5)
-      calc(var(--sizeVar) * 0.2) #00000055,
-    0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 2.5)
-      calc(var(--sizeVar) * 0.2) #00000055;
   justify-content: center;
   align-items: center;
   gap: var(--sizeVar);
+  background-color: #141615;
+  padding: calc(var(--sizeVar) * 2.5);
+  border-radius: calc(var(--sizeVar) * 1);
+  box-shadow: 
+    0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * -1) #ffffff99 inset,
+    0 calc(var(--sizeVar) * 0.25) calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055,
+    0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 2.5) calc(var(--sizeVar) * 0.2) #00000055;
 }
 
 .key {
   width: calc(var(--sizeVar) * 5.6);
   aspect-ratio: 1 / 1;
-  background: rgb(33, 33, 35);
-  background: linear-gradient(
-    0deg,
-    rgba(33, 33, 35, 1) 0%,
-    rgba(53, 53, 53, 1) 100%
-  );
+  background: linear-gradient(0deg, #212123 0%, #353535 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,17 +40,24 @@ body {
   font-weight: 300;
   color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1)
-      calc(var(--sizeVar) * -1) #ffffff55 inset,
-    0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5)
-      calc(var(--sizeVar) * -1) #ffffff33 inset,
-    0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
   position: relative;
   overflow: hidden;
+  box-shadow: 
+    0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1) calc(var(--sizeVar) * -1) #ffffff55 inset,
+    0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * -1) #ffffff33 inset,
+    0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
 }
 
 .key:hover {
   border: 2px solid;
+  filter: brightness(90%);
+  color: transparent;
+  background: #000000 !important;
+  box-shadow: none;
+}
+
+.key-link {
+  text-decoration: none;
 }
 
 .key-link:nth-child(1) .key:hover {
@@ -86,30 +84,47 @@ body {
   border-color: #fe2c55; /* TikTok - Red */
 }
 
-.key .qr {
+.qr {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none;
+  opacity: 0;
 }
 
-.key:hover .qr {
-  display: block;
+.key:hover .qr,
+.key.show-qr .qr {
+  opacity: 1;
 }
 
-.key:hover {
-  filter: brightness(90%);
+.key:hover,
+.key.show-qr {
   color: transparent;
-  background: #000000 !important;
-  box-shadow: 0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1)
-      calc(var(--sizeVar) * -1) #ffffff00 inset,
-    0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5)
-      calc(var(--sizeVar) * -1) #ffffff00 inset,
-    0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
-  cursor: none;
 }
 
-.key-link {
-  text-decoration: none;
+@keyframes hoverEffect {
+  0% {
+    color: transparent;
+    background: #000000 !important;
+    box-shadow: 
+      0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1) calc(var(--sizeVar) * -1) #ffffff55 inset,
+      0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * -1) #ffffff33 inset,
+      0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
+  }
+  50% {
+    color: transparent;
+    background: #000000 !important;
+    box-shadow: 
+      0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1) calc(var(--sizeVar) * -1) #ffffff55 inset,
+      0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * -1) #ffffff33 inset,
+      0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
+  }
+  100% {
+    color: transparent;
+    background: linear-gradient(0deg, #212123 0%, #353535 100%);
+    box-shadow: 
+      0 calc(var(--sizeVar) * 1) calc(var(--sizeVar) * 1) calc(var(--sizeVar) * -1) #ffffff55 inset,
+      0 calc(var(--sizeVar) * -1) calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * -1) #ffffff33 inset,
+      0 0 calc(var(--sizeVar) * 0.5) calc(var(--sizeVar) * 0.2) #00000055;
+  }
 }
